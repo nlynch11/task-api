@@ -8,11 +8,6 @@ export async function getTasks(req, res, next) {
 export async function getTaskUsingId(req, res, next) {
   const { id } = req.params;
   const task = await taskService.getTaskById(Number(id));
-  if (!task) {
-    return res.status(404).json({
-      error: "Task not found",
-    });
-  }
   return res.status(200).json(task);
 }
 
